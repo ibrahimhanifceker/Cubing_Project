@@ -417,7 +417,6 @@ int main() {
         q.pop();
         wordToPosition(word);
         executeU();
-        executeU();
         new_word = positionToWord();
         if (wordSet.contains(new_word)) {
             noChange++;
@@ -439,7 +438,7 @@ int main() {
             if (noChange > threshold) {
                 break;
             }
-        }
+        }   
         else {
             noChange = 0;
             q.push(new_word);
