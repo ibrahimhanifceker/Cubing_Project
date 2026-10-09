@@ -2,17 +2,19 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <queue>
+#include <unordered_set>
 #include <algorithm>
 
 // using namespace std;
 
-const int N = 3; // Size of the cube
+const int N = 9;
 
-std::vector<char> front(N * N, 'o'), bottom(N * N, 'w'), top(N * N, 'y'), left(N * N, 'g'), right(N * N, 'b'), back(N * N, 'r');
+std::vector<char> front(N), bottom(N), top(N) , left(N), right(N), back(N);
 std::vector<char> store;
 
 void establishInitialPosition() {
-    for(int i = 0; i < N * N; i++) {
+    for (int i = 0; i < N; i++) {
         front[i] = 'o';
         bottom[i] = 'w';
         top[i] = 'y';
@@ -351,7 +353,7 @@ void executeUprime() {
 
 void printFace(std::string faceName, std::vector<char>& face) {
     std::cout << faceName << ": ";
-    for(auto i : face) {
+    for (auto i : face) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
@@ -368,15 +370,81 @@ void printPosition() {
 
 bool checkInitial() {
     int faceCount = 0;
-    faceCount += count(front.begin(), front.end(), 'o') == N * N;
-    faceCount += count(bottom.begin(), bottom.end(), 'w') == N * N;
-    faceCount += count(top.begin(), top.end(), 'y') == N * N;
-    faceCount += count(left.begin(), left.end(), 'g') == N * N;
-    faceCount += count(right.begin(), right.end(), 'b') == N * N;
-    faceCount += count(back.begin(), back.end(), 'r') == N * N;
+    faceCount += count(front.begin(), front.end(), 'o') == N;
+    faceCount += count(bottom.begin(), bottom.end(), 'w') == N;
+    faceCount += count(top.begin(), top.end(), 'y') == N;
+    faceCount += count(left.begin(), left.end(), 'g') == N;
+    faceCount += count(right.begin(), right.end(), 'b') == N;
+    faceCount += count(back.begin(), back.end(), 'r') == N;
     return faceCount == 6;
 }
 
+std::string positionToWord() {
+    std::string word = "";
+    word.reserve(6 * N);
+    for (auto clr : front) { word += clr; }
+    for (auto clr : bottom) { word += clr; }
+    for (auto clr : top) { word += clr; }
+    for (auto clr : left) { word += clr; }
+    for (auto clr : right) { word += clr; }
+    for (auto clr : back) { word += clr; }
+    return word;
+}
+
+void wordToPosition(std::string& word) {
+    for(int i = 0; i < N; i++) { front[i] = word[i];};
+    for(int i = 0; i < N; i++) { bottom[i] = word[i + N];};
+    for(int i = 0; i < N; i++) { top[i] = word[i + 2 * N];};
+    for(int i = 0; i < N; i++) { left[i] = word[i + 3 * N];};
+    for(int i = 0; i < N; i++) { right[i] = word[i + 4 * N];};
+    for(int i = 0; i < N; i++) { back[i] = word[i + 5 * N];};
+}
+
 int main() {
-    std::tie(front[0], front[1]) = std::make_pair('0', '1');
+    establishInitialPosition();
+
+    int noChange = 0;
+    std::queue<std::string> q;
+    q.push(positionToWord());
+
+    std::unordered_set<std::string> wordSet;
+    std::string word, new_word;
+
+    constexpr int threshold = 2000;
+
+    while (!q.empty()) {
+        word = q.front();
+        q.pop();
+        wordToPosition(word);
+        executeU();
+        executeU();
+        new_word = positionToWord();
+        if (wordSet.contains(new_word)) {
+            noChange++;
+            if (noChange > threshold) {
+                break;
+            }
+        }
+        else {
+            noChange = 0;
+            q.push(new_word);
+            wordSet.insert(new_word);
+        }
+
+        wordToPosition(word);
+        executeR();
+        new_word = positionToWord();
+        if (wordSet.contains(new_word)) {
+            noChange++;
+            if (noChange > threshold) {
+                break;
+            }
+        }
+        else {
+            noChange = 0;
+            q.push(new_word);
+            wordSet.insert(new_word);
+        }
+    }
+    std::cout << wordSet.size() << std::endl;
 }
