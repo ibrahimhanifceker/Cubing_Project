@@ -411,6 +411,7 @@ int findOrderOfMoveSequence(std::string wordDescription){
     bool Done = false;
     int n = 0;
     establishInitialPosition();
+    // std::cout << wordDescription << std::endl;
     while (Done == false){
         for (int i = 0; i< size; i++ ){
             if (wordDescription[i] == 'R'){
@@ -421,10 +422,11 @@ int findOrderOfMoveSequence(std::string wordDescription){
             }
         }
         n++;
-        if (checkInitial() == true){
+        if (checkInitial()){
             Done = true;
         }
     }
+    // std::cout << wordDescription << std::endl;
     return n;
 }
 
@@ -442,17 +444,19 @@ int main() {
 
     std::unordered_set<std::string> wordSet; //store the scrambles as colors on faces
     std::vector<std::string> wordSetDescription; //store the scrambles as U2's and R's instead
-    std::string word, new_word, new_description;
+    std::string word, new_word, description, new_description;
 
     constexpr int threshold = 2000;
 
     while (!q.empty()) {
         word = q.front();
         q.pop();
+        description = qDesc.front();
+        qDesc.pop();
         wordToPosition(word);
         executeU();
         executeU();
-        new_description = new_description + "UU";
+        new_description = description + "UU";
         new_word = positionToWord();
         if (wordSet.count(new_word)) {
             noChange++;
@@ -471,7 +475,7 @@ int main() {
 
         wordToPosition(word);
         executeR();
-        new_description = new_description+ "R";
+        new_description = description + "R";
         new_word = positionToWord();
         if (wordSet.count(new_word)) {
             noChange++;
@@ -497,8 +501,6 @@ int main() {
         std::string wordDescription = wordSetDescription[p];
         groupOrder.emplace_back(findOrderOfMoveSequence(wordDescription));
     }
-    groupOrder.emplace_back(1);
-    std::cout << groupOrder[0];
     
     for (int o = 0; o <= 30; o++){
         int countNum = std::count(groupOrder.begin(), groupOrder.end(), o);

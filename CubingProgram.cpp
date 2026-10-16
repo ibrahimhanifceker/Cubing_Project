@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <queue>
-#include <unordered_set>
+#include <set>
 #include <algorithm>
 
 // using namespace std;
@@ -407,7 +407,7 @@ int main() {
     std::queue<std::string> q;
     q.push(positionToWord());
 
-    std::unordered_set<std::string> wordSet;
+    std::set<std::string> wordSet;
     std::string word, new_word;
 
     constexpr int threshold = 2000;
@@ -438,7 +438,7 @@ int main() {
             if (noChange > threshold) {
                 break;
             }
-        }   
+        }
         else {
             noChange = 0;
             q.push(new_word);
