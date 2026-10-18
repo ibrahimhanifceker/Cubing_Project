@@ -1,10 +1,12 @@
 #include <iostream>
-#include <set>
+#include <unordered_set>
 #include <string>
 #include <vector>
 #include <queue>
 #include <set>
 #include <algorithm>
+#include <print>
+#include <fstream>
 
 // using namespace std;
 
@@ -401,13 +403,14 @@ void wordToPosition(std::string& word) {
 }
 
 int main() {
+    std::ofstream file("position_words.txt");
     establishInitialPosition();
 
     int noChange = 0;
     std::queue<std::string> q;
     q.push(positionToWord());
 
-    std::set<std::string> wordSet;
+    std::unordered_set<std::string> word_set;
     std::string word, new_word;
 
     constexpr int threshold = 2000;
@@ -418,7 +421,7 @@ int main() {
         wordToPosition(word);
         executeU();
         new_word = positionToWord();
-        if (wordSet.contains(new_word)) {
+        if (word_set.contains(new_word)) {
             noChange++;
             if (noChange > threshold) {
                 break;
@@ -427,13 +430,13 @@ int main() {
         else {
             noChange = 0;
             q.push(new_word);
-            wordSet.insert(new_word);
+            word_set.insert(new_word);
         }
 
         wordToPosition(word);
         executeR();
         new_word = positionToWord();
-        if (wordSet.contains(new_word)) {
+        if (word_set.contains(new_word)) {
             noChange++;
             if (noChange > threshold) {
                 break;
@@ -442,8 +445,11 @@ int main() {
         else {
             noChange = 0;
             q.push(new_word);
-            wordSet.insert(new_word);
+            word_set.insert(new_word);
         }
     }
-    std::cout << wordSet.size() << std::endl;
+    std::cout << word_set.size() << std::endl;
+    for(auto i : word_set) {
+        file << i << std::endl;
+    }
 }
