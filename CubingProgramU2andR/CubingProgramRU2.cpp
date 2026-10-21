@@ -430,6 +430,27 @@ int findOrderOfMoveSequence(std::string wordDescription){
     return n;
 }
 
+void iterateUnorderedSet(std::unordered_set<std::string> wordSet){
+    int limit = 10;    // Number of elements to be inspected
+    int countIterate = 0;
+
+    std::cout << "First " << limit << " elements in the set: \n";
+
+    for (auto it = wordSet.begin(); it != wordSet.end(); ++it) {
+        if (countIterate >= limit) {
+            break; 
+        }
+
+        std::cout << *it << " ";
+        ++countIterate;
+    }
+}
+
+void iterateVector(std::vector<std::string> wordSetDescription){
+    for (int k = 0; k<= 20; k++){
+        std::cout<< wordSetDescription[k] << std::endl;
+    }
+}
 
 
 int main() {
@@ -495,7 +516,7 @@ int main() {
     std::cout << "\nNumber of permutations: " << wordSet.size() << std::endl;
     //std::cout << "Number of permutations for U's and R's: " << wordSetDescription.size() << std::endl; //To see if num of UR descriptions = num of color Descriptions
     std::cout << "===========================\n";
-    //std::cout << wordSetDescription[1];
+
     for (int p = 0; p<wordSetDescription.size(); p++)
     {
         std::string wordDescription = wordSetDescription[p];
@@ -513,5 +534,8 @@ int main() {
             }
         }
     }
+
 }
+//Normal subgroup and quotient subgroup
+//Can groupSetDescription be an unordered set?
 
