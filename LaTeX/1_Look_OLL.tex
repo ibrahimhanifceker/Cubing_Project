@@ -1071,4 +1071,438 @@
 \medskip
 \texttt{r U R' U' M2 U R U' R' U' M'}
 \end{minipage}
+
+\vspace{1cm}
+
+% ======================== CROSS SHAPES ========================
+\section*{Cross Shapes}
+
+    % --- FIRST LINE: Cases 21 & 22 ---
+\noindent
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 21)
+    \foreach \x/\y in {1/0, 0/1, 1/1, 2/1, 1/2} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Unoriented bars on the sides
+    \draw[line width=3pt, yellow] (0,0) -- (1,0);
+    \draw[line width=3pt, yellow] (2,0) -- (3,0);
+    \draw[line width=3pt, yellow] (0,3) -- (1,3);
+    \draw[line width=3pt, yellow] (2,3) -- (3,3);
+\end{tikzpicture}
+
+\ollAlgorithm{R U2 R' U' R U}{R' U' R U' R'}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 22)
+    \foreach \x/\y in {1/0, 0/1, 1/1, 2/1, 1/2} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Unoriented bars on the sides
+    \draw[line width=3pt, yellow] (0,0) -- (0,1);
+    \draw[line width=3pt, yellow] (0,2) -- (0,3);
+    \draw[line width=3pt, yellow] (2,0) -- (3,0);
+    \draw[line width=3pt, yellow] (2,3) -- (3,3);
+\end{tikzpicture}
+
+\ollAlgorithm{R U2 R2 U' R2}{U' R2 U2 R}
+\end{minipage}
+
+\vspace{1cm}
+
+    % --- SECOND LINE: Cases 23 & 24 ---
+\noindent
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 23)
+    \foreach \x/\y in {1/2, 0/1, 1/1, 2/1, 0/0, 1/0, 2/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Unoriented bars on the sides
+    \draw[line width=3pt, yellow] (0,3) -- (1,3);
+    \draw[line width=3pt, yellow] (2,3) -- (3,3);
+\end{tikzpicture}
+
+\ollAlgorithm{R2 D' R U2 R'}{D R U2 R}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 24)
+    \foreach \x/\y in {1/2, 2/2, 0/1, 1/1, 2/1, 1/0, 2/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Unoriented bars on the sides
+    \draw[line width=3pt, yellow] (0,3) -- (1,3);
+    \draw[line width=3pt, yellow] (0,0) -- (1,0);
+\end{tikzpicture}
+
+\ollAlgorithm{r U R' U'}{r' F R F'}
+\end{minipage}
+
+\vspace{1cm}
+
+    % --- THIRD LINE: Cases 25 & 26 ---
+\noindent
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 25)
+    \foreach \x/\y in {1/2, 2/2, 0/1, 1/1, 2/1, 0/0, 1/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Unoriented bars on the sides
+    \draw[line width=3pt, yellow] (0,2) -- (0,3);
+    \draw[line width=3pt, yellow] (2,0) -- (3,0);
+\end{tikzpicture}
+
+\ollAlgorithm{F' r U R' U'}{r' F R}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 26)
+    \foreach \x/\y in {1/2, 2/2, 0/1, 1/1, 2/1, 1/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Unoriented bars on the sides
+    \draw[line width=3pt, yellow] (0,2) -- (0,3);
+    \draw[line width=3pt, yellow] (0,0) -- (1,0);
+    \draw[line width=3pt, yellow] (3,0) -- (3,1);
+\end{tikzpicture}
+
+\ollAlgorithm{R U2 R' U'}{R U' R'}
+\end{minipage}
+
+\vspace{1cm}
+
+    % --- FOURTH LINE: Case 27 ---
+\noindent
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 27)
+    \foreach \x/\y in {1/2, 0/1, 1/1, 2/1, 0/0, 1/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Unoriented bars on the sides
+    \draw[line width=3pt, yellow] (0,3) -- (1,3);
+    \draw[line width=3pt, yellow] (3,2) -- (3,3);
+    \draw[line width=3pt, yellow] (2,0) -- (3,0);
+\end{tikzpicture}
+
+\ollAlgorithm{R U R' U}{R U2 R'}
+\end{minipage}
+
+\vspace{1cm}
+
+% ======================== CORNERS ORIENTED ========================
+\section*{Corners Oriented}
+
+% --- Cases 28 & 57 ---
+\noindent
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 28)
+    \foreach \x/\y in {0/2, 1/2, 2/2, 0/1, 1/1, 0/0, 2/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Yellow stickers on the sides
+    \draw[line width=3pt, yellow] (3,1) -- (3,2);
+    \draw[line width=3pt, yellow] (1,0) -- (2,0);
+\end{tikzpicture}
+
+\ollAlgorithm{r U R' U' r' R}{U R U' R'}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 57)
+    \foreach \x/\y in {0/2, 2/2, 0/1, 1/1, 2/1, 0/0, 2/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Yellow stickers on the sides
+    \draw[line width=3pt, yellow] (1,3) -- (2,3);
+    \draw[line width=3pt, yellow] (1,0) -- (2,0);
+\end{tikzpicture}
+
+\ollAlgorithm{R U R' U' M' U}{R U' r'}
+\end{minipage}
+
+\vspace{1cm}
+
+% ======================== C SHAPE ========================
+\section*{C Shape}
+
+% --- Cases 34 & 46 ---
+\noindent
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 34)
+    \foreach \x/\y in {0/1, 1/1, 2/1, 0/0, 2/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Yellow stickers on the sides
+    \draw[line width=3pt, yellow] (0,2) -- (0,3);
+    \draw[line width=3pt, yellow] (3,2) -- (3,3);
+    \draw[line width=3pt, yellow] (1,3) -- (2,3);
+    \draw[line width=3pt, yellow] (1,0) -- (2,0);
+\end{tikzpicture}
+
+\ollAlgorithm{R U R2 U' R' F}{R U R U' F'}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 46)
+    \foreach \x/\y in {0/2, 1/2, 1/1, 0/0, 1/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Yellow stickers on the sides
+    \draw[line width=3pt, yellow] (0,1) -- (0,2);
+    \draw[line width=3pt, yellow] (3,0) -- (3,1);
+    \draw[line width=3pt, yellow] (3,1) -- (3,2);
+    \draw[line width=3pt, yellow] (3,2) -- (3,3);
+\end{tikzpicture}
+
+\ollAlgorithm{R' U' R' F R}{F' U R}
+\end{minipage}
+
+\vspace{1cm}
+
+% ======================== BIG LIGHTNING BOLT ========================
+\section*{Big Lightning Bolt}
+
+% --- Cases 39 & 40 ---
+\noindent
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 39)
+    \foreach \x/\y in {0/1, 1/1, 2/1, 0/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Yellow stickers on the sides
+    \draw[line width=3pt, yellow] (0,3) -- (1,3);
+    \draw[line width=3pt, yellow] (1,3) -- (2,3);
+    \draw[line width=3pt, yellow] (1,0) -- (2,0);
+    \draw[line width=3pt, yellow] (3,0) -- (3,1);
+\end{tikzpicture}
+
+\ollAlgorithm{L F' L' U' L}{U F U' L'}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 40)
+    \foreach \x/\y in {0/2, 0/1, 1/1, 2/1, 2/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Yellow stickers on the sides
+    \draw[line width=3pt, yellow] (1,3) -- (2,3);
+    \draw[line width=3pt, yellow] (2,3) -- (3,3);
+    \draw[line width=3pt, yellow] (1,0) -- (2,0);
+    \draw[line width=3pt, yellow] (0,0) -- (0,1);
+\end{tikzpicture}
+
+\ollAlgorithm{R' F R U R'}{U' F' U R}
+\end{minipage}
+
+\vspace{1cm}
+
+% ======================== AWKWARD SHAPE ========================
+\section*{Awkward Shape}
+
+% --- Cases 29 & 30 ---
+\noindent
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 29)
+    \foreach \x/\y in {1/2, 2/2, 0/1, 1/1, 2/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Yellow stickers on the sides
+    \draw[line width=3pt, yellow] (0,3) -- (1,3);
+    \draw[line width=3pt, yellow] (3,1) -- (3,2);
+    \draw[line width=3pt, yellow] (0,0) -- (1,0);
+    \draw[line width=3pt, yellow] (1,0) -- (2,0);
+\end{tikzpicture}
+
+\ollAlgorithm{R U R' U' R U' R'}{F' U' F R U R'}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 30)
+    \foreach \x/\y in {1/2, 0/1, 1/1, 1/0, 2/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Yellow stickers on the sides
+    \draw[line width=3pt, yellow] (0,2) -- (0,3);
+    \draw[line width=3pt, yellow] (3,1) -- (3,2);
+    \draw[line width=3pt, yellow] (3,2) -- (3,3);
+    \draw[line width=3pt, yellow] (1,0) -- (2,0);
+\end{tikzpicture}
+
+\ollAlgorithm{F R' F R2 U' R'}{U' R U R' F2}
+\end{minipage}
+
+\vspace{1cm}
+
+% --- Cases 41 & 42 ---
+\noindent
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 41)
+    \foreach \x/\y in {1/2, 0/1, 1/1, 0/0, 2/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Yellow stickers on the sides
+    \draw[line width=3pt, yellow] (0,3) -- (1,3);
+    \draw[line width=3pt, yellow] (2,3) -- (3,3);
+    \draw[line width=3pt, yellow] (3,1) -- (3,2);
+    \draw[line width=3pt, yellow] (1,0) -- (2,0);
+\end{tikzpicture}
+
+\ollAlgorithm{R U R' U R U2 R'}{F R U R' U' F'}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Draw the 3x3 Top Face Grid
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \draw[fill=gray] (\x,\y) rectangle (\x+1,\y+1);
+        }
+    }
+    % Color the oriented yellow stickers on top (OLL 42)
+    \foreach \x/\y in {0/2, 2/2, 0/1, 1/1, 1/0} {
+        \draw[fill=yellow] (\x,\y) rectangle (\x+1,\y+1);
+    }
+    % Yellow stickers on the sides
+    \draw[line width=3pt, yellow] (1,3) -- (2,3);
+    \draw[line width=3pt, yellow] (3,1) -- (3,2);
+    \draw[line width=3pt, yellow] (0,0) -- (1,0);
+    \draw[line width=3pt, yellow] (2,0) -- (3,0);
+\end{tikzpicture}
+
+\ollAlgorithm{R' U' R U' R' U2 R}{F R U R' U' F'}
+\end{minipage}
+
+\vspace{1cm}
+
+
 \end{document}
