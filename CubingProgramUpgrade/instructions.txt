@@ -1,0 +1,46 @@
+Idea of upgrade:
+- main upgrade lies in C++'s compilers already-installed optimization levels (absolutely insane speed up)
+- checkInitial() now only checks the 32 affected small-sides instead of checking all 54
+- file writing will auto compress the move sequences to include U2 and U' as a singular characters
+in this case, u = U prime, r = R prime, X = U2, Z = R2
+- Because the txt.file was written to have "\n" after every move sequence, the file reading process will read line by line (read a 
+sequence until there's a new line character ) instead of taking the whole file into RAM and then finding orders from there.
+--> less ram stress when calculating orders
+- you can still use the CalculatingGroupOrdersFromAFile.cpp with just Us and Rs sequence and it probably will still be fast because the 
+compilers optimization is so insane
+
+This code depends alot on C++'s compiler pre-made optimization levels: (in this case I used -O2 which is considered safer but still
+very quick)
+If you put inside the terminal VSC's terminal this command:
+    g++ -O2 -std=c++17 CalculatingGroupOrdersFromAFile.cpp -o CalculatingGroupOrdersFromAFile.exe
+press enter then type this:
+    .\CalculatingGroupOrdersFromAFile.exe
+The compiler is going to optimize its compiling processes and is able to execute the file's commands more quickly
+
+File writing took around 20 minutes
+File reading took only around 10 minutes when used this optimization method 
+
+Results:
+1 element of order 1
+48435 elements of order 2
+653912 elements of order 3
+414540 elements of order 4
+982224 elements of order 5
+13069920 elements of order 6
+720 elements of order 7
+1137240 elements of order 9
+408240 elements of order 10
+22344840 elements of order 12
+97200 elements of order 14
+4943088 elements of order 15
+1020600 elements of order 18
+1632960 elements of order 20
+1340640 elements of order 21
+6940080 elements of order 30
+1399680 elements of order 35
+2041200 elements of order 36
+2527200 elements of order 42
+1632960 elements of order 45
+5715360 elements of order 60
+2332800 elements of order 63
+2799360 elements of order 105
