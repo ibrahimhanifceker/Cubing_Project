@@ -551,12 +551,6 @@ int main() {
         std::ifstream file("position_words.txt");
         read_from_a_file(file, group, group_description);
         std::cout << "Reading data from the file is complete" << std::endl;
-        for (auto i : group_description) {
-            if (i.size() == 37) {
-                std::cout << i << std::endl;
-            }
-        }
-        return 0;
     }
     else {
         find_groups(group, group_description);
