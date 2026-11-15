@@ -2,4 +2,8 @@ CubingProgram
 input.txt
 output.txt
 position_words.txt
+efficient_way.cpp
+position_words_efficient.txt
+efficient_way
+a.out
 fileReadingNotes.txt
